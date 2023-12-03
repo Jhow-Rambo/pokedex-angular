@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
     standalone: true,
     imports: [ InputComponent, ButtonComponent, ReactiveFormsModule ],
     templateUrl: './login.component.html',
-    styleUrl: './login.component.sass'
 })
 export class LoginComponent {
     loginForm: FormGroup;
