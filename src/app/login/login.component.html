@@ -1,15 +1,25 @@
-<div class="flex flex-col gap-4 min-w-[350px] items-center w-full">
-    <p class="text-2xl">
+<div class="flex flex-col gap-4 min-w-[350px] items-center w-full border rounded-md p-6 bg-white">
+    <h1 class="text-3xl font-extrabold text-center text-gray-800 mb-6">
         Pokedex Login
-    </p>
-    <app-input
-        type="text"
-        placeholder="Digite seu Login"
-        label="Login"
-    ></app-input>
-    <app-input
-        type="password"
-        placeholder="Digite sua senha"
-        label="Senha"
-    ></app-input>
+    </h1>
+    <form [formGroup]="loginForm" (ngSubmit)="submitForm()" class="flex flex-col gap-5">
+        <app-input
+            type="text"
+            placeholder="Digite seu nome de usuário"
+            label="Usuário"
+            (valueChange)="updateUsername($event)"
+            [error]="usernameError"
+        ></app-input>
+        <app-input
+            type="password"
+            placeholder="Digite sua senha"
+            label="Senha"
+            (valueChange)="updatePassword($event)"
+            [error]="passwordError"
+        ></app-input>
+        <app-button
+            type="submit"
+            placeholder="Login"
+        ></app-button>
+    </form>
 </div>

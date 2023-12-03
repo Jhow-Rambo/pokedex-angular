@@ -6,8 +6,10 @@
     </label>
     <input
         [type]="type"
-        class="w-full py-2 px-4 border rounded-md focus:outline-none focus:border-blue-500"
+        class="w-full py-2 px-4 border rounded-md focus:outline-none focus:border-yellow-500"
         label="test"
         [placeholder]="placeholder"
+        (input)="onInputChange($event)"
     />
+    <div *ngIf="error" class="text-red-500">{{ error }}</div>
 </div>
