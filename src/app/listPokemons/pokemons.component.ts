@@ -30,6 +30,6 @@ export class PokemonsComponent implements OnInit {
     }
 
     goToPokemonPage(pokemonName: string): void {
-        this.router.navigate(['/pokemons']);
+        this.router.navigate(['/pokemon', pokemonName]);
     }
 }

@@ -1,0 +1,75 @@
+<div class="container p-4 mx-auto mt-8">
+    <div class="flex flex-col gap-4 p-8 bg-white rounded shadow-md">
+        <h1 class="mb-4 text-4xl font-bold text-center w-fit">{{ pokemon.name }}</h1>
+
+        <img *ngIf="pokemon.id" [src]="getPokemonImageUrl(pokemon.id)" alt="{{ pokemon.name }}"
+            class="mx-auto mb-4 w-[30%] h-[30%]"/>
+
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <!-- Abilities -->
+            <div>
+                <h2 class="mb-2 text-xl font-semibold">Habilidades</h2>
+                <ul>
+                    <li *ngFor="let ability of pokemon.abilities">
+                        {{ ability.ability.name }} ({{ ability.is_hidden ? 'Oculta' : 'Normal' }})
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Base Experience -->
+            <div>
+                <h2 class="mb-2 text-xl font-semibold">Experiência Base</h2>
+                <p>{{ pokemon.base_experience }}</p>
+            </div>
+
+            <!-- Forms -->
+            <div>
+                <h2 class="mb-2 text-xl font-semibold">Formas</h2>
+                <ul>
+                    <li *ngFor="let form of pokemon.forms">
+                        {{ form.name }}
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Stats -->
+            <div>
+                <h2 class="mb-2 text-xl font-semibold">Estatísticas</h2>
+                <ul>
+                    <li *ngFor="let stat of pokemon.stats">
+                        {{ stat.stat.name }}: {{ stat.base_stat }}
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Types -->
+            <div>
+                <h2 class="mb-2 text-xl font-semibold">Tipos</h2>
+                <ul>
+                    <li *ngFor="let type of pokemon.types">
+                        {{ type.type.name }}
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Height -->
+            <div>
+                <h2 class="mb-2 text-xl font-semibold">Altura</h2>
+                <p>{{ pokemon.height }} decímetros</p>
+            </div>
+
+            <!-- Weight -->
+            <div>
+                <h2 class="mb-2 text-xl font-semibold">Peso</h2>
+                <p>{{ pokemon.weight }} hectogramas</p>
+            </div>
+        </div>
+
+        <button
+            (click)="goToPokemonsPage()"
+            class="px-4 py-2 mb-4 text-white bg-red-500 rounded hover:bg-red-600 focus:outline-none focus:shadow-outline-red active:bg-red-800"
+            routerLink="/pokemons">
+            Voltar para Pokémons
+        </button>
+    </div>
+</div>
